@@ -6,9 +6,6 @@ project(BSP C ASM)
 # Includes
 #-------------------------------------------------------------------------------
 
-# Sets the build flags
-include(${CMAKE_CURRENT_LIST_DIR}/build_flags.cmake)
-
 # Sets the sources and include paths for the BSP target below
 include(${CMAKE_CURRENT_LIST_DIR}/sources.cmake)
 
