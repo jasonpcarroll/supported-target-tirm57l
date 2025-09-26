@@ -141,4 +141,6 @@
     #define configMAX_TASK_NAME_LEN    ( 32U )
 #endif
 
+#define configEOI_ADDRESS              0xFFFFFE70UL
+
 #endif /* FREERTOS_CONFIG_H */
