@@ -36,9 +36,6 @@
 * http://www.freertos.org/a00110.html
 *----------------------------------------------------------*/
 
-/* [Required] Enable safety features. */
-#define configUSE_SAFETY                             1
-
 /* [Required] Allocation related configurations. */
 #define configSUPPORT_STATIC_ALLOCATION              1
 #define configSUPPORT_DYNAMIC_ALLOCATION             0
@@ -139,8 +136,6 @@
  * from sys_vim.h, and reg_vim.h. These values correspond to hardware registers
  * and keys exclusive to the board that this demo was written for.
  */
-
-#include "freertos_kernel_trace_defs.h"
 
 #ifndef configMAX_TASK_NAME_LEN
     #define configMAX_TASK_NAME_LEN    ( 32U )

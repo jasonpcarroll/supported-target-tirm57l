@@ -6,17 +6,18 @@ project(BSP C ASM)
 # Includes
 #-------------------------------------------------------------------------------
 
-# Sets the sources and include paths for the BSP target below
+# Gives the sources (BSP_SOURCES) and include paths (BSP_INCLUDE_DIRS) for the 
+# board_support_package target below
 include(${CMAKE_CURRENT_LIST_DIR}/sources.cmake)
 
 #-------------------------------------------------------------------------------
 # Board Support Package Target
 #-------------------------------------------------------------------------------
 
-add_library(HERCULES_RM57 OBJECT
+add_library(board_support_package OBJECT
     ${BSP_SOURCES}
 )
 
-target_include_directories(HERCULES_RM57 PUBLIC
+target_include_directories(board_support_package PUBLIC
     ${BSP_INCLUDE_DIRS}
 )
