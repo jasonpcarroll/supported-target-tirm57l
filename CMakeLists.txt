@@ -17,13 +17,16 @@ include(${CMAKE_CURRENT_LIST_DIR}/sources.cmake)
 
 # Board Support Package (board_support_package)
 
-add_library(board_support_package OBJECT ${BSP_SOURCES})
+add_subdirectory(board_support_package)
 
-target_include_directories(board_support_package PUBLIC ${BSP_INCLUDE_DIRS})
+# FreeRTOS-Kernel configuration
 
-# FreeRTOS configuration
+add_subdirectory(freertos_config)
 
-add_library(freertos_config INTERFACE)
+# Logging
 
-target_include_directories(freertos_config INTERFACE ${CMAKE_CURRENT_LIST_DIR}/freertos_config)
+add_subdirectory(logging)
+
+target_link_libraries(logging PUBLIC board_support_package)
+
 
