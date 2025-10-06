@@ -119,6 +119,7 @@
 #define configMAX_PRIORITIES                       ( 30UL )
 #define configMAX_TASK_NAME_LEN                    ( 32U )
 #define configNUM_THREAD_LOCAL_STORAGE_POINTERS    5
+#define configTIMER_TASK_STACK_DEPTH               configMINIMAL_STACK_SIZE
 
 /* Optional config items - can be enabled/disabled as you see fit. */
 
