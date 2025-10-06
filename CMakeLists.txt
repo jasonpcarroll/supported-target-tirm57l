@@ -1,15 +1,6 @@
 cmake_minimum_required(VERSION 3.15.3)
 
-project(BSP C ASM)
-
-# ------------------------------------------------------------------------------
-# Includes
-# ------------------------------------------------------------------------------
-
-# Gives the sources (BSP_SOURCES) and include paths (BSP_INCLUDE_DIRS) for the
-# board_support_package target below
-
-include(${CMAKE_CURRENT_LIST_DIR}/sources.cmake)
+project(TI-RM57-Support-Package C ASM)
 
 # ------------------------------------------------------------------------------
 # Targets
@@ -27,6 +18,4 @@ add_subdirectory(freertos_config)
 
 add_subdirectory(logging)
 
-target_link_libraries(logging PUBLIC board_support_package)
-
-
+target_link_libraries(logging_freertos PUBLIC board_support_package)
