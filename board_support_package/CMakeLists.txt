@@ -33,4 +33,4 @@ add_library(board_support_package OBJECT ${BSP_SOURCES})
 target_include_directories(board_support_package PUBLIC ${BSP_INCLUDE_DIRS})
 
 target_link_options(board_support_package PUBLIC
-                    "-Wl,-T\"${CMAKE_CURRENT_LIST_DIR}/source/sys_link.ld\"")
+                    "-Wl,-T ${CMAKE_CURRENT_LIST_DIR}/source/sys_link.ld")
