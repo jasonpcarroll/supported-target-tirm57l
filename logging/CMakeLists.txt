@@ -5,3 +5,5 @@ add_library(logging_freertos OBJECT EXCLUDE_FROM_ALL
                                     ${LOGGING_FREERTOS_SOURCES})
 
 target_include_directories(logging_freertos PUBLIC ${LOGGING_INCLUDE_DIRS})
+
+target_link_libraries(logging_freertos PUBLIC board_support_package)

@@ -72,6 +72,6 @@ dataAbortEntry:
     b   FreeRTOS_IRQ_Handler
     /** This LDR loads the memory at ‘PC - 0x1B0’, which is the address of
      * FIQVECREG: 0x1C - 0x1B0 = 0xFFFFFE70. */
-    b   FreeRTOS_FIQ_Handler
+    /* b   FreeRTOS_FIQ_Handler */
 
 /*-------------------------------------------------------------------------------*/

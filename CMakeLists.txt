@@ -12,10 +12,8 @@ add_subdirectory(board_support_package)
 
 # FreeRTOS-Kernel configuration
 
-add_subdirectory(freertos_config)
+add_subdirectory(freertos)
 
 # Logging
 
 add_subdirectory(logging)
-
-target_link_libraries(logging_freertos PUBLIC board_support_package)
