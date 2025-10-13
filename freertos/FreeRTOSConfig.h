@@ -137,7 +137,7 @@
     #define configASSERT( x )                \
     if( ( x ) == 0 )                         \
     {                                        \
-        vAssertCalled( __func__, __LINE__ ); \
+        vAssertCalled( __FILE__, __LINE__ ); \
     }
 #endif /* FREERTOS_ASSEMBLY */
 
@@ -145,10 +145,6 @@
  * from sys_vim.h, and reg_vim.h. These values correspond to hardware registers
  * and keys exclusive to the board that this demo was written for.
  */
-
-#ifndef configMAX_TASK_NAME_LEN
-    #define configMAX_TASK_NAME_LEN    ( 32U )
-#endif
 
 #define configEOI_ADDRESS              0xFFFFFE70UL
 
