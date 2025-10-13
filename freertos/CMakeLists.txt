@@ -1,4 +1,4 @@
-add_library(freertos_config STATIC ${CNAKE_CURRENT_LIST_DIR}/tick_interrupt.c)
+add_library(freertos_config STATIC ${CMAKE_CURRENT_LIST_DIR}/tick_interrupt.c)
 
 target_include_directories(freertos_config PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 
