@@ -135,7 +135,7 @@
     extern void vAssertCalled( const char * pcFileName,
                                uint32_t ulLine );
     #define configASSERT( x )                \
-    if( ( x ) == pdFALSE )                   \
+    if( ( x ) == 0 )                         \
     {                                        \
         vAssertCalled( __func__, __LINE__ ); \
     }
