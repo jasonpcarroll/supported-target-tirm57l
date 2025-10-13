@@ -131,6 +131,14 @@
     extern void vMainSetupTimerInterrupt( void );
     #define configCLEAR_TICK_INTERRUPT()
     #define configSETUP_TICK_INTERRUPT()    vMainSetupTimerInterrupt()
+
+    extern void vAssertCalled( const char * pcFileName,
+                               uint32_t ulLine );
+    #define configASSERT( x )                \
+    if( ( x ) == pdFALSE )                   \
+    {                                        \
+        vAssertCalled( __func__, __LINE__ ); \
+    }
 #endif /* FREERTOS_ASSEMBLY */
 
 /** Note: These value come from the Board Support Package. They are pulled directly

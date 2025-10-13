@@ -21,6 +21,8 @@ typedef void ( * ISRFunction_t )( void );
 #define portVIM_IRQ_INDEX           ( *( ( volatile uint32_t * ) 0xFFFFFE00 ) )
 #define portVIM_IRQ_VEC_REG         ( *( ( volatile ISRFunction_t * ) 0xFFFFFE70 ) )
 
+extern long xTaskIncrementTick( void );
+
 extern volatile uint32_t ulPortYieldRequired;
 
 void vMainSetupTimerInterrupt( void )
@@ -144,7 +146,6 @@ void vApplicationIRQHandler( void )
         /* An IRQ Raised by Channel 21 of the VIM is a Software Interrupt (SSI). */
         else if( 21UL == ulIRQChannelIndex )
         {
-
             /* SWI of unknown cause was raised! */
             configASSERT( 0 );
 
@@ -154,7 +155,8 @@ void vApplicationIRQHandler( void )
         }
         else
         {
-            sci_print( "Unmapped IRQ Channel Number Raised\r\n" );
+            /* Unmapped IRQ Channel Number Raised! */
+            configASSERT( 0 );
         }
     }
 
