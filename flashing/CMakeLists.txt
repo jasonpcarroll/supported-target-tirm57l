@@ -6,7 +6,7 @@ if(NOT EXISTS "${CMAKE_BINARY_DIR}/uniflash_linux")
     SHOW_PROGRESS)
 
   execute_process(
-    COMMAND ${CMAKE_COMMAND} -E tar xf
+    COMMAND ${CMAKE_COMMAND} -E tar xzf
             "${CMAKE_CURRENT_LIST_DIR}/uniflash_linux.zip"
     WORKING_DIRECTORY "${CMAKE_BINARY_DIR}")
 
