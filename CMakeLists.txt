@@ -53,7 +53,7 @@ function(add_executable target)
   get_property(DEBUGGER_CONFIG_PATH GLOBAL PROPERTY DEBUGGER_CONFIG_PATH_PROP)
 
   set(EXECUTABLE_NAME ${target})
-  set(EXECUTABLE_PATH "$<TARGET_FILE:${target}>")
+  set(EXECUTABLE_PATH $<TARGET_FILE:${target}>)
 
   message("VSCODE_LAUNCH_IN: ${VSCODE_LAUNCH_IN}")
 
