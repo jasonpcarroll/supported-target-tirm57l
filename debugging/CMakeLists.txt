@@ -56,7 +56,7 @@ if(NOT DEBUGGER_FOUND)
   get_filename_component(DEBUGGER_FOLDER "${DEBUGGER_URL}" NAME_WE)
 
   # Download and extract toolchain if not present
-  set(DEBUGGER_DIR "${CMAKE_BINARY_DIR}/${DEBUGGER_FOLDER}.12.0-7")
+  set(DEBUGGER_DIR "${CMAKE_BINARY_DIR}/${DEBUGGER_FOLDER}.12.0-7" PARENT_SCOPE)
 
   if(NOT EXISTS "${DEBUGGER_DIR}")
     message(
@@ -72,3 +72,5 @@ if(NOT DEBUGGER_FOUND)
 endif()
 
 add_custom_target(launch_debug_server "${DEBUGGER_DIR}/bin/openocd" -f "${CMAKE_CURRENT_LIST_DIR}/ti_rm57.cfg")
+
+set_property(GLOBAL PROPERTY DEBUGGER_CONFIG_PATH_PROP "${CMAKE_CURRENT_LIST_DIR}/ti_rm57.cfg")

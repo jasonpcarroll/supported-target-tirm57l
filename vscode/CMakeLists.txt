@@ -1,0 +1,1 @@
+set_property(GLOBAL PROPERTY VSCODE_LAUNCH_IN_PROP "${CMAKE_CURRENT_LIST_DIR}/launch.json.in")
