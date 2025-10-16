@@ -70,7 +70,7 @@ if(NOT DEBUGGER_FOUND)
     get_filename_component(ARCHIVE_NAME "${DEBUGGER_URL}" NAME)
     file(DOWNLOAD "${DEBUGGER_URL}" "${CMAKE_BINARY_DIR}/${ARCHIVE_NAME}"
          SHOW_PROGRESS)
-    execute_process(COMMAND ${CMAKE_COMMAND} -E tar xf "${ARCHIVE_NAME}" "${DEBUGGER_DIR}"
+    execute_process(COMMAND ${CMAKE_COMMAND} -E tar xf "${ARCHIVE_NAME}" -C "${DEBUGGER_DIR}"
                     WORKING_DIRECTORY "${CMAKE_BINARY_DIR}")
     file(REMOVE "${CMAKE_BINARY_DIR}/${ARCHIVE_NAME}")
   endif()
