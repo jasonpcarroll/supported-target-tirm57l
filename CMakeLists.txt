@@ -17,3 +17,7 @@ add_subdirectory(freertos)
 # Logging
 
 add_subdirectory(logging)
+
+# Debugging
+
+add_subdirectory(debugging)
