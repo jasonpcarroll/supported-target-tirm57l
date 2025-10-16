@@ -54,9 +54,10 @@ if(NOT DEBUGGER_FOUND)
   endif()
 
   get_filename_component(DEBUGGER_FOLDER "${DEBUGGER_URL}" NAME_WE)
-  
+
   # Download and extract toolchain if not present
-  set(DEBUGGER_DIR "${CMAKE_BINARY_DIR}/${DEBUGGER_FOLDER}")
+  set(DEBUGGER_DIR "${CMAKE_BINARY_DIR}/${DEBUGGER_FOLDER}.12.0-7")
+  
   if(NOT EXISTS "${DEBUGGER_DIR}")
     message(
       STATUS "Downloading openOCD for ${CMAKE_HOST_SYSTEM_NAME} ${HOST_ARCH}..."
