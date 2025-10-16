@@ -21,3 +21,15 @@ add_subdirectory(logging)
 # Debugging
 
 add_subdirectory(debugging)
+
+# ------------------------------------------------------------------------------
+# Function overrides
+# ------------------------------------------------------------------------------
+function(add_executable target)
+
+  get_property(DEBUG_COMMAND GLOBAL PROPERTY debug_command_prop)
+  # Forward all arguments to the CMake add_executable
+  _add_executable(${target} ${ARGN})
+
+  message("${DEBUG_COMMAND}")
+endfunction()
