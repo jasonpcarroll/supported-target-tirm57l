@@ -46,7 +46,7 @@ function(add_executable target)
   add_dependencies(launch_debug_${target} ${target})
 
   get_property(VSCODE_LAUNCH_IN GLOBAL PROPERTY VSCODE_LAUNCH_IN_PROP)
-  set_property(DEBUGGER_CONFIG_PATH GLOBAL PROPERTY DEBUGGER_CONFIG_PATH_PROP)
+  get_property(DEBUGGER_CONFIG_PATH GLOBAL PROPERTY DEBUGGER_CONFIG_PATH_PROP)
 
   set(EXECUTABLE_NAME ${target})
   set(EXECUTABLE_PATH "$<TARGET_FILE:${target}>")
