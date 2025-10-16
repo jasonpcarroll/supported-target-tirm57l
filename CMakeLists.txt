@@ -50,13 +50,17 @@ function(add_executable target)
   add_dependencies(launch_debug_${target} ${target})
 
   get_property(VSCODE_LAUNCH_IN GLOBAL PROPERTY VSCODE_LAUNCH_IN_PROP)
+  get_property(DEBUGGER_DIR GLOBAL PROPERTY DEBUGGER_DIR_PROP)
   get_property(DEBUGGER_CONFIG_PATH GLOBAL PROPERTY DEBUGGER_CONFIG_PATH_PROP)
 
   set(EXECUTABLE_NAME ${target})
+
   set(EXECUTABLE_PATH $<TARGET_FILE:${target}>)
 
   message("VSCODE_LAUNCH_IN: ${VSCODE_LAUNCH_IN}")
 
   configure_file("${VSCODE_LAUNCH_IN}" "${CMAKE_SOURCE_DIR}/.vscode/launch.json" @ONLY)
+
+  file(GENERATE OUTPUT "${CMAKE_SOURCE_DIR}/.vscode/launch.json" INPUT "${CMAKE_SOURCE_DIR}/.vscode/launch.json" )
 
 endfunction()
