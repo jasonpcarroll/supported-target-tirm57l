@@ -71,7 +71,7 @@ function(add_executable target)
 
   get_property(VSCODE_TASKS_IN GLOBAL PROPERTY VSCODE_TASKS_IN_PROP)
 
-  set(BUILD_TARGET ${target})
+  set(BUILD_TARGET flash_${target})
 
   configure_file("${VSCODE_TASKS_IN}" "${CMAKE_SOURCE_DIR}/.vscode/tasks.json")
 
