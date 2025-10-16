@@ -26,6 +26,10 @@ add_subdirectory(flashing)
 
 add_subdirectory(debugging)
 
+# VS Code Integration
+
+add_subdirectory(vscode)
+
 # ------------------------------------------------------------------------------
 # Function overrides
 # ------------------------------------------------------------------------------
