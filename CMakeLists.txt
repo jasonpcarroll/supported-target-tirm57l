@@ -51,6 +51,8 @@ function(add_executable target)
   set(EXECUTABLE_NAME ${target})
   set(EXECUTABLE_PATH "$<TARGET_FILE:${target}>")
 
+  message("VSCODE_LAUNCH_IN: ${VSCODE_LAUNCH_IN}")
+
   configure_file("${VSCODE_LAUNCH_IN}" "${CMAKE_SOURCE_DIR}/.vscode/launch.json" @ONLY)
 
 endfunction()
