@@ -31,5 +31,4 @@ function(add_executable target)
   # Forward all arguments to the CMake add_executable
   _add_executable(${target} ${ARGN})
 
-  message("${DEBUG_COMMAND}")
 endfunction()

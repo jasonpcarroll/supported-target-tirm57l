@@ -57,7 +57,7 @@ if(NOT DEBUGGER_FOUND)
 
   # Download and extract toolchain if not present
   set(DEBUGGER_DIR "${CMAKE_BINARY_DIR}/${DEBUGGER_FOLDER}.12.0-7")
-  
+
   if(NOT EXISTS "${DEBUGGER_DIR}")
     message(
       STATUS "Downloading openOCD for ${CMAKE_HOST_SYSTEM_NAME} ${HOST_ARCH}..."
@@ -70,6 +70,8 @@ if(NOT DEBUGGER_FOUND)
     file(REMOVE "${CMAKE_BINARY_DIR}/${ARCHIVE_NAME}")
   endif()
 endif()
+
+
 
 set_property(
   GLOBAL
