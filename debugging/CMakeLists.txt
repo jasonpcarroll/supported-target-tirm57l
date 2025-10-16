@@ -71,4 +71,4 @@ if(NOT DEBUGGER_FOUND)
   endif()
 endif()
 
-add_custom_target(launch_debug_server "${DEBUGGER_DIR}/bin/openocd -f ${CMAKE_CURRENT_LIST_DIR}/ti_rm57.cfg")
+add_custom_target(launch_debug_server "${DEBUGGER_DIR}/bin/openocd" -f "${CMAKE_CURRENT_LIST_DIR}/ti_rm57.cfg")
