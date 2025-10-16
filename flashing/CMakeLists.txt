@@ -5,7 +5,7 @@ if(NOT EXISTS "${CMAKE_BINARY_DIR}/uniflash_linux")
     "${CMAKE_BINARY_DIR}/uniflash_linux.zip"
     SHOW_PROGRESS)
 
-  file(ARCHIVE_EXTRACT INPUT "${CMAKE_BINARY_DIR}/uniflash_linux.zip")
+  file(ARCHIVE_EXTRACT INPUT "${CMAKE_BINARY_DIR}/uniflash_linux.zip" VERBOSE)
 
   #file(REMOVE "${CMAKE_BINARY_DIR}/uniflash_linux.zip")
 endif()
