@@ -65,7 +65,7 @@ if(NOT DEBUGGER_FOUND)
   if(NOT EXISTS "${DEBUGGER_DIR}")
     message(
       STATUS
-        "Downloading ARM toolchain for ${CMAKE_HOST_SYSTEM_NAME} ${HOST_ARCH}..."
+        "Downloading openOCD for ${CMAKE_HOST_SYSTEM_NAME} ${HOST_ARCH}..."
     )
     get_filename_component(ARCHIVE_NAME "${DEBUGGER_URL}" NAME)
     file(DOWNLOAD "${DEBUGGER_URL}" "${CMAKE_BINARY_DIR}/${ARCHIVE_NAME}"
