@@ -37,6 +37,8 @@ function(add_executable target)
   # Forward all arguments to the CMake add_executable
   _add_executable(${target} ${ARGN})
 
+  # Add flash command for each executable
+
   add_custom_target(
     flash_${target}
     "${CMAKE_BINARY_DIR}/uniflash_linux/ccs_base/DebugServer/bin/DSLite" load -c "${CMAKE_BINARY_DIR}/uniflash_linux/user_files/configs/rm57l8xx.ccxml" -f "$<TARGET_FILE:${target}>"
@@ -44,8 +46,12 @@ function(add_executable target)
 
   add_dependencies(flash_${target} ${target})
 
+  # Add debug launch command for each executable
+
   add_custom_target(launch_debug_${target}
                     "${CMAKE_C_DEBUGGER}" -ex "target extended-remote :3333" "$<TARGET_FILE:${target}>")
+
+  # Add VS Code launch configurations for each executable
 
   add_dependencies(launch_debug_${target} ${target})
 
@@ -57,10 +63,16 @@ function(add_executable target)
 
   set(EXECUTABLE_PATH $<TARGET_FILE:${target}>)
 
-  message("VSCODE_LAUNCH_IN: ${VSCODE_LAUNCH_IN}")
-
   configure_file("${VSCODE_LAUNCH_IN}" "${CMAKE_SOURCE_DIR}/.vscode/launch.json" @ONLY)
 
   file(GENERATE OUTPUT "${CMAKE_SOURCE_DIR}/.vscode/launch.json" INPUT "${CMAKE_SOURCE_DIR}/.vscode/launch.json" )
+
+  # Add VS code build tasks for each executable
+
+  get_property(VSCODE_TASKS_IN GLOBAL PROPERTY VSCODE_TASKS_IN_PROP)
+
+  set(BUILD_TARGET ${target})
+
+  configure_file("${VSCODE_TASKS_IN}" "${CMAKE_SOURCE_DIR}/.vscode/tasks.json")
 
 endfunction()

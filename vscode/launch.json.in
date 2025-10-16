@@ -16,7 +16,8 @@
                 "port":"3333",
                 "server": "@DEBUGGER_DIR@/bin/openocd",
                 "serverParameters": ["-f", "@DEBUGGER_CONFIG_PATH@"]
-            }
+            },
+            "preLaunchTask": "CMake: build"
         }
     
     ]
