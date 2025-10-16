@@ -18,6 +18,10 @@ add_subdirectory(freertos)
 
 add_subdirectory(logging)
 
+# Flashing
+
+add_subdirectory(flashing)
+
 # Debugging
 
 add_subdirectory(debugging)
@@ -33,6 +37,8 @@ function(add_executable target)
     flash_${target}
     "${CMAKE_BINARY_DIR}/uniflash_linux/ccs_base/DebugServer/bin/DSLite" load -c "${CMAKE_BINARY_DIR}/uniflash_linux/user_files/configs/rm57l8xx.ccxml" -f "$<TARGET_FILE:${target}>"
   )
+
+  message("CMAKE_BINARY_DIR: ${CMAKE_BINARY_DIR}")
 
   add_dependencies(flash_${target} ${target})
 
