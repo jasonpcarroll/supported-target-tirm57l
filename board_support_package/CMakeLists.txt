@@ -17,8 +17,8 @@ set(BSP_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_core.s
     ${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_dma.c
     ${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_intvecs.s
-    ${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_link.ld
-    ${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_main.c
+    # Do not redefine main.
+    # ${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_main.c
     ${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_mpu.s
     ${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_pcr.c
     ${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_phantom.c
