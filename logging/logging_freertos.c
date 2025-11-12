@@ -26,7 +26,7 @@ void prvUARTSend( const char * pucInBuffer,
 
     for( ulCurByte = 0; ulCurByte < ulSize; ++ulCurByte )
     {
-        sciSendByte( scilinREG, ( uint8_t ) pucInBuffer[ ulCurByte ] );
+        sciSendByte( sciREG1, ( uint8_t ) pucInBuffer[ ulCurByte ] );
     }
 }
 
