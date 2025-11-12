@@ -1,5 +1,3 @@
-add_library(freertos_config STATIC ${CMAKE_CURRENT_LIST_DIR}/tick_interrupt.c)
+add_library(freertos_config INTERFACE)
 
-target_include_directories(freertos_config PUBLIC ${CMAKE_CURRENT_LIST_DIR})
-
-target_link_libraries(freertos_config PUBLIC board_support_package)
+target_include_directories(freertos_config INTERFACE ${CMAKE_CURRENT_LIST_DIR})
