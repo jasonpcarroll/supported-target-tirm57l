@@ -4,7 +4,7 @@
     <family>RM57Lx</family>
     <device>RM57L843ZWT</device>
     <dilfile>HalCoGen-RM57x.dil</dilfile>
-    <tools>ti</tools>
+    <tools>gcc</tools>
   </DEVICE>
   <VERSION>
     <version>04.07.01</version>
@@ -83,18 +83,18 @@
         <NAME>HL_reg_ccmr5.h</NAME>
         <PATH>include\HL_reg_ccmr5.h</PATH>
       </HDRCCM_R>
-      <HDRSYSTEM>
-        <NAME>HL_system.h</NAME>
-        <PATH>include\HL_system.h</PATH>
-      </HDRSYSTEM>
-      <HDRVIM>
-        <NAME>HL_sys_vim.h</NAME>
-        <PATH>include\HL_sys_vim.h</PATH>
-      </HDRVIM>
       <HDRCORE>
         <NAME>HL_sys_core.h</NAME>
         <PATH>include\HL_sys_core.h</PATH>
       </HDRCORE>
+      <HDRSYSTEM>
+        <NAME>HL_system.h</NAME>
+        <PATH>include\HL_system.h</PATH>
+      </HDRSYSTEM>
+      <HDRVIM_GCC>
+        <NAME>HL_sys_vim.h</NAME>
+        <PATH>include\HL_sys_vim.h</PATH>
+      </HDRVIM_GCC>
       <HDRMPU>
         <NAME>HL_sys_mpu.h</NAME>
         <PATH>include\HL_sys_mpu.h</PATH>
@@ -115,22 +115,22 @@
         <NAME>HL_sys_dma.h</NAME>
         <PATH>include\HL_sys_dma.h</PATH>
       </HDRDMA>
-      <SRCCORE>
-        <NAME>HL_sys_core.asm</NAME>
-        <PATH>source\HL_sys_core.asm</PATH>
-      </SRCCORE>
-      <SRCINTVECS>
-        <NAME>HL_sys_intvecs.asm</NAME>
-        <PATH>source\HL_sys_intvecs.asm</PATH>
-      </SRCINTVECS>
-      <SRCMPU>
-        <NAME>HL_sys_mpu.asm</NAME>
-        <PATH>source\HL_sys_mpu.asm</PATH>
-      </SRCMPU>
-      <SRCPMU>
-        <NAME>HL_sys_pmu.asm</NAME>
-        <PATH>source\HL_sys_pmu.asm</PATH>
-      </SRCPMU>
+      <SRCCORE_GCC>
+        <NAME>HL_sys_core.s</NAME>
+        <PATH>source\HL_sys_core.s</PATH>
+      </SRCCORE_GCC>
+      <SRCINTVECS_GCC>
+        <NAME>HL_sys_intvecs.s</NAME>
+        <PATH>source\HL_sys_intvecs.s</PATH>
+      </SRCINTVECS_GCC>
+      <SRCMPU_GCC>
+        <NAME>HL_sys_mpu.s</NAME>
+        <PATH>source\HL_sys_mpu.s</PATH>
+      </SRCMPU_GCC>
+      <SRCPMU_GCC>
+        <NAME>HL_sys_pmu.s</NAME>
+        <PATH>source\HL_sys_pmu.s</PATH>
+      </SRCPMU_GCC>
       <SRCPCR>
         <NAME>HL_sys_pcr.c</NAME>
         <PATH>source\HL_sys_pcr.c</PATH>
@@ -167,10 +167,10 @@
         <NAME>HL_notification.c</NAME>
         <PATH>source\HL_notification.c</PATH>
       </SRCNOTIFY>
-      <SRCCMD>
-        <NAME>HL_sys_link.cmd</NAME>
-        <PATH>source\HL_sys_link.cmd</PATH>
-      </SRCCMD>
+      <SRCCMD_GCC>
+        <NAME>HL_sys_link.ld</NAME>
+        <PATH>source\HL_sys_link.ld</PATH>
+      </SRCCMD_GCC>
       <HDREPC_R>
         <NAME>HL_reg_epc.h</NAME>
         <PATH>include\HL_reg_epc.h</PATH>
@@ -211,6 +211,21 @@
         <NAME>HL_errata.c</NAME>
         <PATH>source\HL_errata.c</PATH>
       </SRCERRATA>
+      <HDRTEST>
+        <NAME>HL_Test.h</NAME>
+      </HDRTEST>
+      <SSWFHDRERRATA>
+        <NAME>HL_errata_SSWF021_45.h</NAME>
+        <PATH>include\HL_errata_SSWF021_45.h</PATH>
+      </SSWFHDRERRATA>
+      <SSWFHDREGERRATA>
+        <NAME>HL_errata_SSWF021_45_defs.h</NAME>
+        <PATH>include\HL_errata_SSWF021_45_defs.h</PATH>
+      </SSWFHDREGERRATA>
+      <SSWFSRCERRATA>
+        <NAME>HL_errata_SSWF021_45.c</NAME>
+        <PATH>source\HL_errata_SSWF021_45.c</PATH>
+      </SSWFSRCERRATA>
       <HDRMUX_R>
         <NAME>HL_reg_pinmux.h</NAME>
       </HDRMUX_R>
@@ -356,6 +371,15 @@
       <HDRPHY>
         <NAME>HL_phy_dp83640.h</NAME>
       </HDRPHY>
+      <SRC2PHY>
+        <NAME>HL_phy_tlk111.c</NAME>
+      </SRC2PHY>
+      <HDR2PHY>
+        <NAME>HL_phy_tlk111.h</NAME>
+      </HDR2PHY>
+      <HDR7EMAC>
+        <NAME>HL_emac_phyConfig.h</NAME>
+      </HDR7EMAC>
       <HDRDCC_R>
         <NAME>HL_reg_dcc.h</NAME>
       </HDRDCC_R>
@@ -363,6 +387,20 @@
         <NAME>HL_dcc.h</NAME>
       </HDRDCC>
       <SRCDCC/>
+      <HDRRTP_R>
+        <NAME>HL_reg_rtp.h</NAME>
+      </HDRRTP_R>
+      <HDRRTP>
+        <NAME>HL_rtp.h</NAME>
+      </HDRRTP>
+      <SRCRTP/>
+      <HDRDMM_R>
+        <NAME>HL_reg_dmm.h</NAME>
+      </HDRDMM_R>
+      <HDRDMM>
+        <NAME>HL_dmm.h</NAME>
+      </HDRDMM>
+      <SRCDMM/>
       <HDREMIF_R>
         <NAME>HL_reg_emif.h</NAME>
       </HDREMIF_R>
@@ -405,23 +443,6 @@
         <NAME>HL_eqep.h</NAME>
       </HDREQEP>
       <SRCEQEP/>
-      <HDRTEST>
-        <NAME>HL_Test.h</NAME>
-      </HDRTEST>
-      <HDRRTP_R>
-        <NAME>HL_reg_rtp.h</NAME>
-      </HDRRTP_R>
-      <HDRRTP>
-        <NAME>HL_rtp.h</NAME>
-      </HDRRTP>
-      <SRCRTP/>
-      <HDRDMM_R>
-        <NAME>HL_reg_dmm.h</NAME>
-      </HDRDMM_R>
-      <HDRDMM>
-        <NAME>HL_dmm.h</NAME>
-      </HDRDMM>
-      <SRCDMM/>
       <HDR1FEE>
         <NAME>Device_RM57.h</NAME>
       </HDR1FEE>
@@ -462,27 +483,6 @@
       <SRC14FEE/>
       <SRC15FEE/>
       <SRC16FEE/>
-      <SSWFHDRERRATA>
-        <NAME>HL_errata_SSWF021_45.h</NAME>
-        <PATH>include\HL_errata_SSWF021_45.h</PATH>
-      </SSWFHDRERRATA>
-      <SSWFHDREGERRATA>
-        <NAME>HL_errata_SSWF021_45_defs.h</NAME>
-        <PATH>include\HL_errata_SSWF021_45_defs.h</PATH>
-      </SSWFHDREGERRATA>
-      <SSWFSRCERRATA>
-        <NAME>HL_errata_SSWF021_45.c</NAME>
-        <PATH>source\HL_errata_SSWF021_45.c</PATH>
-      </SSWFSRCERRATA>
-      <SRC2PHY>
-        <NAME>HL_phy_tlk111.c</NAME>
-      </SRC2PHY>
-      <HDR2PHY>
-        <NAME>HL_phy_tlk111.h</NAME>
-      </HDR2PHY>
-      <HDR7EMAC>
-        <NAME>HL_emac_phyConfig.h</NAME>
-      </HDR7EMAC>
     </FILENAMES>
   </SYSTEM>
   <PINMUX>
@@ -706,6 +706,32 @@
       </SRCDCC>
     </FILENAMES>
   </DCC>
+  <RTP>
+    <FILENAMES>
+      <HDRRTP_R>
+        <PATH>include\HL_reg_rtp.h</PATH>
+      </HDRRTP_R>
+      <HDRRTP>
+        <PATH>include\HL_rtp.h</PATH>
+      </HDRRTP>
+      <SRCRTP>
+        <PATH/>
+      </SRCRTP>
+    </FILENAMES>
+  </RTP>
+  <DMM>
+    <FILENAMES>
+      <HDRDMM_R>
+        <PATH>include\HL_reg_dmm.h</PATH>
+      </HDRDMM_R>
+      <HDRDMM>
+        <PATH>include\HL_dmm.h</PATH>
+      </HDRDMM>
+      <SRCDMM>
+        <PATH/>
+      </SRCDMM>
+    </FILENAMES>
+  </DMM>
   <EMIF>
     <FILENAMES>
       <HDREMIF_R>
@@ -784,32 +810,6 @@
       </SRCEQEP>
     </FILENAMES>
   </EQEP>
-  <RTP>
-    <FILENAMES>
-      <HDRRTP_R>
-        <PATH>include\HL_reg_rtp.h</PATH>
-      </HDRRTP_R>
-      <HDRRTP>
-        <PATH>include\HL_rtp.h</PATH>
-      </HDRRTP>
-      <SRCRTP>
-        <PATH/>
-      </SRCRTP>
-    </FILENAMES>
-  </RTP>
-  <DMM>
-    <FILENAMES>
-      <HDRDMM_R>
-        <PATH>include\HL_reg_dmm.h</PATH>
-      </HDRDMM_R>
-      <HDRDMM>
-        <PATH>include\HL_dmm.h</PATH>
-      </HDRDMM>
-      <SRCDMM>
-        <PATH/>
-      </SRCDMM>
-    </FILENAMES>
-  </DMM>
   <FEE>
     <FILENAMES>
       <HDR1FEE>
