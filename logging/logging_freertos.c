@@ -10,7 +10,7 @@
 #include "logging.h"
 
 /* Board Support Package includes. */
-#include "sci.h"
+#include "HL_sci.h"
 
 #define LOGGING_OUTPUT_BUFFER_SIZE    512
 
