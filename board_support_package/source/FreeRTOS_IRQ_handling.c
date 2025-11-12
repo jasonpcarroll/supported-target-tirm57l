@@ -1,17 +1,8 @@
 #include <stdint.h>
-#include "FreeRTOSConfig.h"
 #include "HL_reg_vim.h"
-#include "HL_sys_vim.h"
-#include "HL_rti.h"
+#include "HL_sys_core.h"
 
 typedef void (* ISRFunction_t)( void );
-
-void vMainSetupTimerInterrupt( void )
-{
-    rtiInit();
-    rtiEnableNotification( rtiREG1, rtiNOTIFICATION_COMPARE0 );
-    rtiStartCounter( rtiREG1, rtiCOUNTER_BLOCK0 );
-}
 
 /** @brief Default IRQ Handler used in the ARM_Cortex_RX ports.
  * @note This Handler is directly tied to the Texas Instrument's Hercules

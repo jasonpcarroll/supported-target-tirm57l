@@ -1,4 +1,5 @@
 set(BSP_SOURCES
+    # HalCoGen generated files.
     ${CMAKE_CURRENT_LIST_DIR}/source/HL_emac.c
     ${CMAKE_CURRENT_LIST_DIR}/source/HL_epc.c
     ${CMAKE_CURRENT_LIST_DIR}/source/HL_errata_SSWF021_45.c
@@ -26,7 +27,10 @@ set(BSP_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_startup.c
     ${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_vim.c
     ${CMAKE_CURRENT_LIST_DIR}/source/HL_system.c
-)
+    # vApplicationIRQHandler for nested IRQs
+    ${CMAKE_CURRENT_LIST_DIR}/source/FreeRTOS_IRQ_handling.c
+    # FreeRTOS tick interrupt setup
+    ${CMAKE_CURRENT_LIST_DIR}/source/FreeRTOS_tick_interrupt.c)
 
 set(BSP_INCLUDE_DIRS ${CMAKE_CURRENT_LIST_DIR}/include)
 
@@ -36,5 +40,4 @@ target_include_directories(board_support_package PUBLIC ${BSP_INCLUDE_DIRS})
 
 target_link_options(
   board_support_package PUBLIC
-  "-Wl,-T${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_link.ld"
-  "--specs=nosys.specs")
+  "-Wl,-T${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_link.ld" "--specs=nosys.specs")
