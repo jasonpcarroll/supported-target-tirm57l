@@ -52,7 +52,7 @@
 #define configRUN_MULTIPLE_PRIORITIES                0
 
 /* [Required] Port fundamental configurations. */
-#define configCPU_CLOCK_HZ                           ( 110000000U )
+#define configCPU_CLOCK_HZ                           ( 75000000U )
 #define portCRITICAL_NESTING_IN_TCB                  0
 #define configENABLE_FPU                             1U
 #define configENABLE_MPU                             0

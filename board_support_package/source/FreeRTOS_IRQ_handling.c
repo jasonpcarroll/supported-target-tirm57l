@@ -1,8 +1,10 @@
 #include <stdint.h>
-#include "HL_reg_vim.h"
+#include "HL_sys_vim.h"
 #include "HL_sys_core.h"
+#include "HL_reg_rti.h"
+#include "FreeRTOS.h"
+#include "task.h"
 
-typedef void (* ISRFunction_t)( void );
 
 /** @brief Default IRQ Handler used in the ARM_Cortex_RX ports.
  * @note This Handler is directly tied to the Texas Instrument's Hercules
@@ -13,7 +15,7 @@ typedef void (* ISRFunction_t)( void );
 void vApplicationIRQHandler( void )
 {
     /* Load the IRQ Channel Number and Function PTR from the VIM. */
-    ISRFunction_t xIRQFncPtr = ( ISRFunction_t ) vimREG->IRQVECREG;
+    t_isrFuncPTR xIRQFncPtr = ( t_isrFuncPTR ) vimREG->IRQVECREG;
 
     /* Save current IRQ mask. */
     uint32_t ulSaveIRQMask0 = vimREG->REQMASKSET0;
