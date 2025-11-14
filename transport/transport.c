@@ -24,7 +24,7 @@ TransportStatus_t Transport_Init( void )
     vimChannelMap( EMAC_RX_PULSE_INT_VIM_CHANNEL, EMAC_RX_PULSE_INT_VIM_CHANNEL, EMACRxIntISR );
     vimChannelMap( EMAC_TX_PULSE_INT_VIM_CHANNEL, EMAC_TX_PULSE_INT_VIM_CHANNEL, EMACTxIntISR );
     vimEnableInterrupt( EMAC_RX_PULSE_INT_VIM_CHANNEL, SYS_IRQ );
-    vimEnableInterrupt( EMAC_TX_PULSE_INT_VIM_CHANNEL SYS_IRQ );
+    vimEnableInterrupt( EMAC_TX_PULSE_INT_VIM_CHANNEL, SYS_IRQ );
     return xReturn;
 }
 
