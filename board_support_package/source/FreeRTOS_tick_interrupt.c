@@ -15,7 +15,7 @@ void vHandleTickInterrupt( void )
 {
     ulPortYieldRequired = xTaskIncrementTick();
 
-    /* Clear RTI interrupt. */
+    /* Clear RTI Compare 0 interrupt. */
     rtiREG1->INTFLAG = 1U;
 }
 

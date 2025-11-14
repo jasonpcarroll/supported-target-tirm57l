@@ -32,6 +32,14 @@ add_subdirectory(flashing)
 
 add_subdirectory(debugging)
 
+# Transport interface
+
+add_subdirectory(transport)
+
+# Clock interface
+
+add_subdirectory(clock)
+
 # VS Code Integration
 
 add_subdirectory(vscode)
