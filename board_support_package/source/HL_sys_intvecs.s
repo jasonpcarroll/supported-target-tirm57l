@@ -46,8 +46,8 @@
 @ import reference for interrupt routines
 
     .extern _c_int00
-    .extern FreeRTOS_SVC_Handler
-    .extern FreeRTOS_IRQ_Handler
+
+
     .extern phantomInterrupt
     .weak resetEntry
 
@@ -58,13 +58,14 @@ resetEntry:
         b   _c_int00
 undefEntry:
         b   undefEntry
-        b   FreeRTOS_SVC_Handler
+svcEntry:
+        b   svcEntry
 prefetchEntry:
         b   prefetchEntry
 dataEntry:
         b   dataEntry
         b   phantomInterrupt
-        b   FreeRTOS_IRQ_Handler
+        ldr pc,[pc,#-0x1b0]
         ldr pc,[pc,#-0x1b0]
 
 /*-------------------------------------------------------------------------------*/

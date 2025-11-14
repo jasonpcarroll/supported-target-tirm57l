@@ -93,8 +93,8 @@ extern void esmHighInterrupt(void) __attribute__ ((weak, interrupt("FIQ")));
 extern void phantomInterrupt(void) __attribute__ ((weak, interrupt("IRQ")));
 extern void rtiCompare0Interrupt(void) __attribute__ ((weak, interrupt("IRQ")));
 extern void rtiCompare2Interrupt(void) __attribute__ ((weak, interrupt("IRQ")));
-extern void EMACCore0TxIsr(void) __attribute__ ((weak, interrupt("IRQ")));
-extern void EMACCore0RxIsr(void) __attribute__ ((weak, interrupt("IRQ")));
+extern void EMACRxIntISR(void) __attribute__ ((weak, interrupt("IRQ")));
+extern void EMACTxIntISR(void) __attribute__ ((weak, interrupt("IRQ")));
 
 /* USER CODE BEGIN (3) */
 /* USER CODE END */

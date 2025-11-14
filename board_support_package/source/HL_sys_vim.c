@@ -146,9 +146,9 @@ static const t_isrFuncPTR s_vim_init[128U] =
     &phantomInterrupt,          /* Channel 74  */
     &phantomInterrupt,          /* Channel 75  */
     &phantomInterrupt,          /* Channel 76  */
-    &EMACCore0TxIsr,       /* Channel 77  */
+    &EMACTxIntISR,       /* Channel 77  */
     &phantomInterrupt,          /* Channel 78  */
-    &EMACCore0RxIsr,       /* Channel 79  */
+    &EMACRxIntISR,       /* Channel 79  */
     &phantomInterrupt,          /* Channel 80  */
     &phantomInterrupt,          /* Channel 81  */
     &phantomInterrupt,          /* Channel 82  */
