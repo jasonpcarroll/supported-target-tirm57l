@@ -12,8 +12,8 @@
 
 static uint8_t ucMACAddress[ 6 ] = { 0x00U, 0x08U, 0xEEU, 0x03U, 0xA6U, 0x6CU };
 
-extern void EMACTxIntISR(void);
-extern void EMACRxIntISR(void);
+extern void EMACTxIntISR( void );
+extern void EMACRxIntISR( void );
 
 TransportStatus_t Transport_Init( void )
 {
@@ -23,8 +23,8 @@ TransportStatus_t Transport_Init( void )
 
     vimChannelMap( EMAC_RX_PULSE_INT_VIM_CHANNEL, EMAC_RX_PULSE_INT_VIM_CHANNEL, EMACRxIntISR );
     vimChannelMap( EMAC_TX_PULSE_INT_VIM_CHANNEL, EMAC_TX_PULSE_INT_VIM_CHANNEL, EMACTxIntISR );
-    vimEnableInterrupt( EMAC_RX_PULSE_INT_VIM_CHANNEL );
-    vimEnableInterrupt( EMAC_TX_PULSE_INT_VIM_CHANNEL );
+    vimEnableInterrupt( EMAC_RX_PULSE_INT_VIM_CHANNEL, SYS_IRQ );
+    vimEnableInterrupt( EMAC_TX_PULSE_INT_VIM_CHANNEL SYS_IRQ );
     return xReturn;
 }
 
