@@ -22,8 +22,6 @@ add_subdirectory(logging)
 
 add_subdirectory(coremqtt)
 
-target_link_libraries(core_mqtt_config INTERFACE logging_freertos)
-
 # Flashing
 
 add_subdirectory(flashing)

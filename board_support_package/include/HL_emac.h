@@ -73,7 +73,7 @@ extern "C" {
 #define EMAC_RX_ENABLE					(1U)
 #define EMAC_MII_ENABLE					(1U)
 #define EMAC_FULL_DUPLEX_ENABLE			(1U)
-#define EMAC_LOOPBACK_ENABLE			(1U)
+#define EMAC_LOOPBACK_ENABLE			(0U)
 #define EMAC_BROADCAST_ENABLE			(1U)
 #define EMAC_UNICAST_ENABLE				(1U)
 #define EMAC_CHANNELNUMBER					(0U)
