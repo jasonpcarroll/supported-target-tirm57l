@@ -11,7 +11,7 @@ FetchContent_Declare(
   GIT_TAG main
   GIT_SUBMODULES "")
 
-target_include_directories(freertos_config PUBLIC ${CMAKE_CURRENT_LIST_DIR})
+target_include_directories(freertos_config INTERFACE ${CMAKE_CURRENT_LIST_DIR})
 set(FREERTOS_PLUS_TCP_NETWORK_IF A_CUSTOM_NETWORK_IF)
 
 FetchContent_MakeAvailable(freertos_plus_tcp)
