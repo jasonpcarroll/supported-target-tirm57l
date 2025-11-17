@@ -110,8 +110,8 @@ static BaseType_t xHercules_NetworkInterfaceOutput( NetworkInterface_t * pxInter
 
     xEMACTransmitReturn = EMACTransmit( &hdkif_data[ xEMACIndex ], &xOutputBuffer );
 
-    vimEnableInterrupt( EMAC_RX_PULSE_INT_VIM_CHANNEL );
-    vimEnableInterrupt( EMAC_TX_PULSE_INT_VIM_CHANNEL );
+    vimEnableInterrupt( EMAC_RX_PULSE_INT_VIM_CHANNEL, SYS_IRQ );
+    vimEnableInterrupt( EMAC_TX_PULSE_INT_VIM_CHANNEL, SYS_IRQ );
 
     if( xEMACTransmitReturn == false )
     {
