@@ -62,7 +62,7 @@
 #define configUSE_MUTEXES                            1
 #define configUSE_CO_ROUTINES                        0
 #define configUSE_DAEMON_TASK_STARTUP_HOOK           0
-#define configUSE_EVENT_GROUPS                       0
+#define configUSE_EVENT_GROUPS                       1
 #define configUSE_LIST_DATA_INTEGRITY_CHECK_BYTES    0
 #define configUSE_MINI_LIST_ITEM                     0
 #define configUSE_QUEUE_SETS                         0
