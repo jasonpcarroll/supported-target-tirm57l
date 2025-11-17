@@ -1,15 +1,29 @@
-# include(FetchContent)
+include(FetchContent)
 
-# FetchContent_Declare(
-#   freertos_plus_tcp
-#   GIT_REPOSITORY https://github.com/FreeRTOS/FreeRTOS-Plus-TCP.git
-#   GIT_TAG main # Note: Best practice to use specific git-hash or tagged version
-#   GIT_SUBMODULES "" # Don't grab any submodules since not latest
-# )
+add_library(freertos_plus_tcp_network_if STATIC
+            ${CMAKE_CURRENT_LIST_DIR}/NetworkInterface.c)
 
-# set(FREERTOS_PLUS_TCP_NETWORK_IF A_CUSTOM_NETWORK_IF)
+target_link_libraries(freertos_plus_tcp_network_if PUBLIC board_support_package)
 
-# FetchContent_MakeAvailable(freertos_plus_tcp)
+FetchContent_Declare(
+  freertos_plus_tcp
+  GIT_REPOSITORY https://github.com/FreeRTOS/FreeRTOS-Plus-TCP.git
+  GIT_TAG main
+  GIT_SUBMODULES "")
+
+target_include_directories(freertos_config PUBLIC ${CMAKE_CURRENT_LIST_DIR})
+set(FREERTOS_PLUS_TCP_NETWORK_IF A_CUSTOM_NETWORK_IF)
+
+FetchContent_MakeAvailable(freertos_plus_tcp)
+
+target_link_libraries( freertos_plus_tcp_network_if
+  PUBLIC
+    freertos_plus_tcp_port
+    freertos_plus_tcp_network_if_common
+  PRIVATE
+    freertos_kernel
+    freertos_plus_tcp
+)
 
 add_library(transport STATIC ${CMAKE_CURRENT_LIST_DIR}/transport.c)
 target_include_directories(transport PUBLIC ${CMAKE_CURRENT_LIST_DIR})

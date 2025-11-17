@@ -16,7 +16,6 @@
 
 /* FreeRTOS+TCP includes. */
 #include "FreeRTOS_IP.h"
-#include "FreeRTOS_IP_Private.h"
 #include "NetworkBufferManagement.h"
 
 extern hdkif_t hdkif_data[ MAX_EMAC_INSTANCE ];
