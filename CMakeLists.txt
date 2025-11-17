@@ -6,13 +6,13 @@ project(TI-RM57-Support-Package C ASM)
 # Targets
 # ------------------------------------------------------------------------------
 
+# FreeRTOS-Kernel
+
+add_subdirectory(freertos)
+
 # Board Support Package (board_support_package)
 
 add_subdirectory(board_support_package)
-
-# FreeRTOS-Kernel configuration
-
-add_subdirectory(freertos)
 
 # Logging
 

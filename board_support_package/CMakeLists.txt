@@ -38,7 +38,7 @@ add_library(board_support_package OBJECT ${BSP_SOURCES})
 
 target_include_directories(board_support_package PUBLIC ${BSP_INCLUDE_DIRS})
 
-target_link_libraries(board_support_package PRIVATE m)
+target_link_libraries(board_support_package PRIVATE m freertos_kernel)
 
 target_link_options(
   board_support_package PUBLIC
