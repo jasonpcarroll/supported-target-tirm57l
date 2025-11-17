@@ -50,21 +50,20 @@ static void prvEMACRXTask( void * pvParameters )
     {
         /* Wait for interrupt handler to say data is ready to be received. */
         ulTaskNotifyTake( pdTRUE, portMAX_DELAY );
-        
     }
 }
 
 static BaseType_t xHercules_NetworkInterfaceInitialise( NetworkInterface_t * pxInterface )
 {
     uint32_t ulEMACHWInitReturn;
-    BasetType_t xResult = pdPASS;
+    BaseType_t xResult = pdPASS;
     BaseType_t xEMACIndex = ( BaseType_t ) pxInterface->pvArgument;
 
     /* Map interrupts to VIM. */
     vimChannelMap( EMAC_RX_PULSE_INT_VIM_CHANNEL, EMAC_RX_PULSE_INT_VIM_CHANNEL, vFreeRTOSEMACRXInterruptHandler );
     vimChannelMap( EMAC_TX_PULSE_INT_VIM_CHANNEL, EMAC_TX_PULSE_INT_VIM_CHANNEL, vFreeRTOSEMACTXInterruptHandler );
-    vimEnableInterrupt( EMAC_RX_PULSE_INT_VIM_CHANNEL );
-    vimEnableInterrupt( EMAC_TX_PULSE_INT_VIM_CHANNEL );
+    vimEnableInterrupt( EMAC_RX_PULSE_INT_VIM_CHANNEL, SYS_IRQ );
+    vimEnableInterrupt( EMAC_TX_PULSE_INT_VIM_CHANNEL, SYS_IRQ );
 
     ulEMACHWInitReturn = EMACHWInit( ucMACAddress );
 
@@ -133,7 +132,7 @@ static BaseType_t xHercules_GetPhyLinkStatus( NetworkInterface_t * pxInterface )
 
     boolean xPhyStatus = Dp83640LinkStatusGet( hdkif_data[ xEMACIndex ].mdio_base, EMAC_PHYADDRESS, 10 );
 
-    return xPhyStatus: pdTRUE ? pdFALSE;
+    return xPhyStatus ? pdTRUE : pdFALSE;
 }
 
 NetworkInterface_t * pxHercules_FillInterfaceDescriptor( BaseType_t xEMACIndex,
