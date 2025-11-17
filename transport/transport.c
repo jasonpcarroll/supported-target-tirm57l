@@ -20,7 +20,7 @@ static const uint8_t ucDNSServerAddress[ 4 ] = { 8, 8, 8, 8 };
 
 /* Only one network interface. */
 static NetworkInterface_t xInterfaces[ 1 ];
-static Endpoint_t xEndPoints[ 4 ];
+static NetworkEndPoint_t xEndPoints[ 4 ];
 
 extern void EMACTxIntISR( void );
 extern void EMACRxIntISR( void );
