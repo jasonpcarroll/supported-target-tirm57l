@@ -165,9 +165,6 @@ void _c_int00(void)
 
 /* USER CODE BEGIN (11) */
 /* USER CODE END */
-
-        /* Enable IRQ offset via Vic controller */
-        _coreEnableIrqVicOffset_();
             
         /* Initialize VIM table */
 	    vimInit();
