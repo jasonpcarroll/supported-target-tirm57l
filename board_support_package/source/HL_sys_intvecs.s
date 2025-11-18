@@ -59,7 +59,7 @@ resetEntry:
 undefEntry:
         b   undefEntry
 svcEntry:
-        b   FreeTOS_SVC_Handler
+        b   FreeRTOS_SVC_Handler
 prefetchEntry:
         b   prefetchEntry
 dataEntry:
