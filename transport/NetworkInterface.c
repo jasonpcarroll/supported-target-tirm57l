@@ -12,6 +12,7 @@
 #include "HL_phy_dp83640.h"
 #include "HL_sys_vim.h"
 #include "HL_gio.h"
+#include "HL_pinmux.h"
 #include "HL_reg_het.h"
 
 /* FreeRTOS+TCP includes. */
@@ -59,6 +60,9 @@ static BaseType_t xHercules_NetworkInterfaceInitialise( NetworkInterface_t * pxI
     BaseType_t xResult = pdPASS;
     BaseType_t xEMACIndex = ( BaseType_t ) pxInterface->pvArgument;
 
+    muxInit();
+    gioInit();
+
     /* Map interrupts to VIM. */
     vimChannelMap( EMAC_RX_PULSE_INT_VIM_CHANNEL, EMAC_RX_PULSE_INT_VIM_CHANNEL, vFreeRTOSEMACRXInterruptHandler );
     vimChannelMap( EMAC_TX_PULSE_INT_VIM_CHANNEL, EMAC_TX_PULSE_INT_VIM_CHANNEL, vFreeRTOSEMACTXInterruptHandler );
@@ -70,10 +74,6 @@ static BaseType_t xHercules_NetworkInterfaceInitialise( NetworkInterface_t * pxI
     if( ulEMACHWInitReturn != EMAC_ERR_OK )
     {
         xResult = pdFAIL;
-    }
-
-    if( xResult == pdPASS )
-    {
     }
 
     return xResult;

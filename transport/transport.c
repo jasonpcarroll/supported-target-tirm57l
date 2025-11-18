@@ -9,9 +9,6 @@
 /* Include */
 #include "FreeRTOS_IP.h"
 
-#define EMAC_RX_PULSE_INT_VIM_CHANNEL    79
-#define EMAC_TX_PULSE_INT_VIM_CHANNEL    77
-
 static uint8_t ucMACAddress[ 6 ] = { 0x00U, 0x08U, 0xEEU, 0x03U, 0xA6U, 0x6CU };
 static const uint8_t ucIPAddress[ 4 ] = { 10, 128, 56, 101 };
 static const uint8_t ucNetMask[ 4 ] = { 255, 255, 255, 0 };
@@ -22,12 +19,10 @@ static const uint8_t ucDNSServerAddress[ 4 ] = { 8, 8, 8, 8 };
 static NetworkInterface_t xInterfaces[ 1 ];
 static NetworkEndPoint_t xEndPoints[ 4 ];
 
-extern void EMACTxIntISR( void );
-extern void EMACRxIntISR( void );
-
 TransportStatus_t Transport_Init( void )
 {
     TransportStatus_t xReturn = TRANSPORT_SUCCESS;
+    BaseType_t xFreeRTOSIPInitReturn;
 
     extern NetworkInterface_t * pxHercules_FillInterfaceDescriptor( BaseType_t xEMACIndex,
                                                                     NetworkInterface_t * pxInterface );
@@ -43,7 +38,12 @@ TransportStatus_t Transport_Init( void )
     }
     #endif /* ( ipconfigUSE_DHCP != 0 ) */
 
-    /*xResult = FreeRTOS_IPInit_Multi(); */
+    xFreeRTOSIPInitReturn = FreeRTOS_IPInit_Multi();
+
+    if( xFreeRTOSIPInitReturn != pdPASS )
+    {
+        xReturn = TRANSPORT_INIT_FAIL;
+    }
 
     return xReturn;
 }
