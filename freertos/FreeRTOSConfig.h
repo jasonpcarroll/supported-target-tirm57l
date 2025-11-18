@@ -68,7 +68,7 @@
 #define configUSE_QUEUE_SETS                         0
 #define configUSE_RECURSIVE_MUTEXES                  0
 #define configUSE_STREAM_BUFFERS                     0
-#define configUSE_TASK_NOTIFICATIONS                 0
+#define configUSE_TASK_NOTIFICATIONS                 1
 #define configUSE_TICKLESS_IDLE                      0
 #define configUSE_TIMERS                             0
 #define configUSE_TRACE_FACILITY                     0
