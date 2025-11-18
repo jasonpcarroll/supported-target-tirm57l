@@ -18,5 +18,5 @@ uint32_t ulApplicationGetNextSequenceNumber( uint32_t ulSourceAddress,
 
                                              uint16_t usDestinationPort )
 {
-    return ( uint32_t ) rand();)
+    return ( uint32_t ) rand();
 }
